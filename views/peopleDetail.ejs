@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/allStyles.css">
+    <title><%= peopleDetail[0].name %> </title>
+</head>
+<body>
+    <h1><%= peopleDetail[0].name %> </h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <td><%= peopleDetail[0].name %></td>
+        </tr>
+        <tr>
+            <th>Height</th>
+            <td class="alt"><%= peopleDetail[0].height %></td>
+        </tr>
+        <tr>
+            <th>Mass</th>
+            <td><%= peopleDetail[0].mass %></td>
+        </tr>
+        <tr>
+            <th>Hair Color</th>
+            <td class="alt"><%= peopleDetail[0].hair_color %></td>
+        </tr>
+        <tr>
+            <th>Eye Color</th>
+            <td><%= peopleDetail[0].eye_color %></td>
+        </tr>
+        <tr>
+            <th>Birth Year</th>
+            <td class="alt"><%= peopleDetail[0].birth_year %></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td><%= peopleDetail[0].gender %></td>
+        </tr>
+    </table>
+</body>
+</html>
