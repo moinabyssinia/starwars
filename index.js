@@ -57,9 +57,44 @@ app.get('/people/:name', async (req, res) => {
     console.log(name);
     const starWarPeople = await axios.get(`https://swapi.dev/api/people/?search=${name}`);
     const peopleDetail = starWarPeople.data.results;
-    res.render('peopleDetail', { peopleDetail })
+
+    // get film details this character was in
+    const filmUrl = peopleDetail[0].films;
+    console.log(filmUrl);
+
+    let filmSilo = [];
+    for (let url of filmUrl) {
+        const filmDat = await axios.get(url);
+        const filmTitle = filmDat.data.title;
+        console.log(filmTitle);
+        filmSilo.push(filmTitle);
+    }
+
+
+    res.render('peopleDetail', { peopleDetail, filmSilo })
 })
 
+// films detail route - use search based on the name of the film
+app.get('/films/:filmName', async (req, res) => {
+    const filmTitle = req.params.filmName;
+    console.log(filmTitle);
+    const filmDat = await axios.get(`https://swapi.dev/api/films/?search=${filmTitle}`);
+    const filmDatClean = filmDat.data.results[0];
+    
+    // get character/people data
+    const people = filmDat.data.results[0].characters;
+    const peopleList = [];
+    for (let peopleUrl of people) {
+        const peopleDat = await axios.get(peopleUrl);
+        const peopleName = peopleDat.data.name;
+        peopleList.push(peopleName);
+    }
+
+
+    console.log(peopleList);
+
+    res.render('filmDetail', { filmDatClean, peopleList });
+})
 
 app.listen(1990, () => {
     console.log("app running on port 1990");

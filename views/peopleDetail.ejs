@@ -39,6 +39,27 @@
             <th>Gender</th>
             <td><%= peopleDetail[0].gender %></td>
         </tr>
+        <tr>
+            <th>Films</th>
+            <td>
+                <% for(let film of filmSilo.sort()) {%> 
+                    <a href="/films/<%= film %> "><%= film %></a> 
+                <% } %> 
+            </td>
+
+        </tr>
+        <tr>
+            <th>Species</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Vehicles</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>Starships</th>
+            <td></td>
+        </tr>
     </table>
 </body>
 </html>

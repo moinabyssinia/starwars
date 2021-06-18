@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/allStyles.css">
+    <title><%= filmDatClean.title %> </title>
+</head>
+<body>
+    <h1><%= filmDatClean.title %> </h1>
+
+    <table>
+        <tr>
+            <th>Title</th>
+            <td><%= filmDatClean.title %></td>
+        </tr>
+        <tr>
+            <th>Opening Crawl</th>
+            <td class="alt">
+                <p>
+                    <%= filmDatClean.opening_crawl %>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <th>Director</th>
+            <td><%= filmDatClean.director %></td>
+        </tr>
+        <tr>
+            <th>Producer</th>
+            <td class="alt"><%= filmDatClean.producer %></td>
+        </tr>
+        <tr>
+            <th>Release Date</th>
+            <td><%= filmDatClean.release_date %></td>
+        </tr>
+        <tr>
+            <th>Characters</th>
+            <td class="alt">
+                <% for (let people of peopleList) { %>
+                    <a href="/people/<%= people %> "><p><%= people %></p></a>
+
+                <% } %> 
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
