@@ -7,6 +7,9 @@ const axios = require('axios');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'))
 
+
+const PORT = process.env.PORT || 1990;
+
 app.engine('ejs', ejsMate); 
 app.use(express.static("public")); // to locate css and other files
 
@@ -96,6 +99,6 @@ app.get('/films/:filmName', async (req, res) => {
     res.render('filmDetail', { filmDatClean, peopleList });
 })
 
-app.listen(1990, () => {
-    console.log("app running on port 1990");
+app.listen(PORT, () => {
+    console.log(`app running on port ${PORT}`);
 })
