@@ -16,6 +16,11 @@ app.use(express.static("public")); // to locate css and other files
 
 
 
+// home page route
+app.get('/', (req, res) => {
+    res.render('home')
+})
+
 // films route
 app.get('/films', async (req, res) => {
 

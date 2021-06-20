@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- get axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="../styles/allStyles.css">
+
     <title>People</title>
 </head>
-<body>
+<body onload="loadfun()">
+
+    <div id="loading"></div>
+
     <h1>All Star Wars People</h1>
 
     <% let counter = 1; %> 
@@ -26,5 +32,11 @@
     <% } %> 
 
     <script src="scripts/script.js"></script>
+    <!-- <script>
+        const load = document.getElementById("loading");
+        function loadfun(){
+            load.style.display = 'none';
+        }
+    </script> -->
 </body>
 </html>
