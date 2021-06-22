@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/allStyles.css">
+
+    <title><%= vehicleDatClean.name %> </title>
+</head>
+<body>
+    <h1><%= vehicleDatClean.name %> </h1>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <td><%= vehicleDatClean.name %></td>
+        </tr>
+        <tr>
+            <th>Model</th>
+            <td class="alt">
+                <p>
+                    <%= vehicleDatClean.model %>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <th>Manufacturer</th>
+            <td><%= vehicleDatClean.manufacturer %></td>
+        </tr>
+        <tr>
+            <th>Cost in Credit</th>
+            <td class="alt"><%= vehicleDatClean.cost_in_credits %></td>
+        </tr>
+        <tr>
+            <th>Length</th>
+            <td><%= vehicleDatClean.length %></td>
+        </tr>
+        <tr>
+            <th>Maximum Atmosphering Speed</th>
+            <td><%= vehicleDatClean.max_atmosphering_speed %></td>
+        </tr>
+        <tr>
+            <th>Crew</th>
+            <td><%= vehicleDatClean.crew %></td>
+        </tr>
+        <tr>
+            <th>Passengers</th>
+            <td><%= vehicleDatClean.passengers %></td>
+        </tr>
+        <tr>
+            <th>Cargo Capacity</th>
+            <td><%= vehicleDatClean.cargo_capacity %></td>
+        </tr>
+        <tr>
+            <th>Consumables</th>
+            <td><%= vehicleDatClean.consumables %></td>
+        </tr>
+        <tr>
+            <th>Vehicle Class</th>
+            <td><%= vehicleDatClean.vehicle_class %></td>
+        </tr>
+
+
+        <tr>
+            <th>Pilots</th>
+            <td class="alt">
+                <% for (let pilot of pilotList) { %>
+                    <a href="/people/<%= pilot %> "><p><%= pilot %></p></a>
+
+                <% } %> 
+            </td>
+        </tr>
+
+        <tr>
+            <th>Films</th>
+            <td class="alt">
+                <% for (let film of filmList) { %>
+                    <a href="/films/<%= film %> "><p><%= film %></p></a>
+
+                <% } %> 
+            </td>
+        </tr>
+
+    </table>
+
+
+</body>
+</html>

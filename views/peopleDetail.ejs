@@ -43,7 +43,7 @@
             <th>Films</th>
             <td>
                 <% for(let film of filmSilo.sort()) {%> 
-                    <a href="/films/<%= film %> "><%= film %></a> 
+                    <a href="/films/<%= film %> "><p><%= film %></p></a> 
                 <% } %> 
             </td>
 
@@ -53,8 +53,13 @@
             <td></td>
         </tr>
         <tr>
-            <th>Vehicles</th>
-            <td></td>
+            <th>Vechiles</th>
+            <td class="alt">
+                <% for (let vehicle of vehicleSilo) { %>
+                    <a href="/vehicles/<%= vehicle %> "><p><%= vehicle %></p></a>
+
+                <% } %> 
+            </td>
         </tr>
         <tr>
             <th>Starships</th>

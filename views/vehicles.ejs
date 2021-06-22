@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicles</title>
+</head>
+<body>
+    <h1>All Star Wars Vehicles</h1>
+
+    <% let counter = 1; %>
+
+    <% for (let page of vehicleDat) { %> 
+        <% for (let vehicle of page) { %> 
+            <a href="/vehicles/<%= vehicle.name %>" style = "text-decoration: none;">
+                <h4 style="margin-top: 5px; margin-bottom: 5px;"><%= counter %>. <%= vehicle.name %></h4>
+            </a>
+            <% counter++; %>
+        <% } %> 
+    <% } %> 
+</body>
+</html>

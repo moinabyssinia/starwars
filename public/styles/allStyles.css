@@ -21,6 +21,8 @@ th {
 .container h1{
   text-align: center;
   margin: 50px auto 100px auto;
+  font-family: 'Leckerli One', cursive;
+  font-size: 4rem;
 
 }
 
@@ -43,8 +45,9 @@ th {
 
 .row {
   /* margin-top: 20px; */
+  width: 80%;
   justify-content: space-around !important;
-  /* margin: 20px auto 20px auto; */
+  margin: auto;
   display: flex;
   align-items: space-between;
 }
@@ -57,4 +60,8 @@ th {
   url("https://res.cloudinary.com/practicaldev/image/fetch/s--sQzcbE_t--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_66%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/fk3smrzna1vieidxaawn.gif")
   no-repeat center;
   z-index: 99999;
+}
+
+.card-body h3 {
+  font-family: 'Leckerli One', cursive;
 }

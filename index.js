@@ -59,12 +59,41 @@ app.get('/people', async (req, res) => {
     res.render('people', { peopleDat });
 })
 
+// vehicles route
+app.get('/vehicles', async (req, res) => {
+    const baseURL = "https://swapi.dev/api/vehicles/";
+
+    let starWarsVehicle = await axios.get(baseURL);
+    let vehicleDat = [];
+    vehicleDat.push(starWarsVehicle.data.results);
+    let nextPageURL = starWarsVehicle.data.next;
+    // console.log(nextPageURL);
+
+    while(nextPageURL){
+        starWarsVehicle = await axios.get(nextPageURL);
+        const data = starWarsVehicle.data.results;
+        // console.log(data);
+        // console.log(data.length);
+        vehicleDat.push(data)
+
+        nextPageURL = starWarsVehicle.data.next;
+        console.log(nextPageURL);
+
+    }
+    console.log(vehicleDat.length);
+
+    res.render('vehicles', { vehicleDat });
+})
+
+
 // people detail route
 app.get('/people/:name', async (req, res) => {
     const name = req.params.name;
     console.log(name);
     const starWarPeople = await axios.get(`https://swapi.dev/api/people/?search=${name}`);
     const peopleDetail = starWarPeople.data.results;
+    console.log(peopleDetail);
+
 
     // get film details this character was in
     const filmUrl = peopleDetail[0].films;
@@ -78,8 +107,20 @@ app.get('/people/:name', async (req, res) => {
         filmSilo.push(filmTitle);
     }
 
+    // get vehicles this character piloted
+    const vehicleUrl = peopleDetail[0].vehicles;
+    console.log(vehicleUrl);
 
-    res.render('peopleDetail', { peopleDetail, filmSilo })
+    let vehicleSilo = [];
+    for (let url of vehicleUrl) {
+        const vehicleDat = await axios.get(url);
+        const vehicleTitle = vehicleDat.data.name;
+        console.log(vehicleTitle);
+        vehicleSilo.push(vehicleTitle);
+    }
+    console.log(vehicleSilo);
+
+    res.render('peopleDetail', { peopleDetail, filmSilo, vehicleSilo })
 })
 
 // films detail route - use search based on the name of the film
@@ -103,6 +144,43 @@ app.get('/films/:filmName', async (req, res) => {
 
     res.render('filmDetail', { filmDatClean, peopleList });
 })
+
+// vehicles detail router
+app.get('/vehicles/:vehicleName', async (req, res) => {
+    const vehicleName = req.params.vehicleName;
+    console.log(vehicleName);
+    const vehicleDat = await axios.get(`https://swapi.dev/api/vehicles/?search=${vehicleName}`);
+    const vehicleDatClean = vehicleDat.data.results[0];
+
+    console.log(vehicleDatClean);
+
+    // get pilot/people data
+    const pilots = vehicleDat.data.results[0].pilots;
+
+    const pilotList = [];
+    for (let pilotUrl of pilots) {
+        const pilotDat = await axios.get(pilotUrl);
+        const pilotName = pilotDat.data.name;
+        pilotList.push(pilotName);
+    }
+
+    // get film data
+    const films = vehicleDat.data.results[0].films;
+
+    const filmList = [];
+    for (let filmUrl of films) {
+        const filmDat = await axios.get(filmUrl);
+        console.log(filmDat);
+        const filmName = filmDat.data.title;
+        filmList.push(filmName);
+    }
+
+
+    console.log(filmList);
+
+    res.render('vehicleDetail', { vehicleDatClean, pilotList, filmList });
+})
+
 
 app.listen(PORT, () => {
     console.log(`app running on port ${PORT}`);
