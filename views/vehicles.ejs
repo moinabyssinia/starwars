@@ -13,9 +13,13 @@
 
     <% for (let page of vehicleDat) { %> 
         <% for (let vehicle of page) { %> 
-            <a href="/vehicles/<%= vehicle.name %>" style = "text-decoration: none;">
-                <h4 style="margin-top: 5px; margin-bottom: 5px;"><%= counter %>. <%= vehicle.name %></h4>
-            </a>
+            <div class="holder" style="display: flex; margin-left: 10px;">
+                <h4 style="width: 25px; margin-top: 5px; margin-bottom: 5px;"><%= counter %>.</h4>
+
+                <a href="/vehicles/<%= vehicle.name %>" style = "text-decoration: none;"><h4 style="margin-top: 5px; margin-bottom: 5px;"><%= vehicle.name %></h4>
+                </a>
+            </div>
+
             <% counter++; %>
         <% } %> 
     <% } %> 

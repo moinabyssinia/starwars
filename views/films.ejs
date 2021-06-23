@@ -6,13 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- get axios -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <link rel="stylesheet" href="../styles/allStyles.css">
+
     <title>Films</title>
 </head>
 <body>
     <h1>All Star Wars Films</h1>
-    <h4><%= filmDat.length %> films found </h4>
+
+    <% let counter = 1; %>
+
+    <h3 style="margin-left: 10px;"><%= filmDat.length %> films found </h3>
     <% for (let film of filmDat) { %> 
-        <a href="/films/<%= film.title %> "><h4><%= film.title %></h4></a> 
+        <div class="holder" style="display: flex; margin-left: 10px;">
+            <h4 style="width: 25px; margin-top: 5px; margin-bottom: 5px;"><%= counter %>.</h4>
+
+            <a href="/films/<%= film.title %>" style = "text-decoration: none;">
+                <h4 style="margin-top: 5px; margin-bottom: 5px;"><%= film.title %></h4></a> 
+        </div>
+        <% counter++; %>
     <% } %> 
 
     <script src="scripts/script.js"></script>

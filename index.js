@@ -138,11 +138,20 @@ app.get('/films/:filmName', async (req, res) => {
         const peopleName = peopleDat.data.name;
         peopleList.push(peopleName);
     }
+    
+    // get vehicles data
+    const vehicles = filmDat.data.results[0].vehicles;
+    const vehicleList = [];
+    for (let vehicleUrl of vehicles) {
+        const vehicleDat = await axios.get(vehicleUrl);
+        const vehicleName = vehicleDat.data.name;
+        vehicleList.push(vehicleName);
+    }
 
 
-    console.log(peopleList);
+    console.log(vehicleList);
 
-    res.render('filmDetail', { filmDatClean, peopleList });
+    res.render('filmDetail', { filmDatClean, peopleList, vehicleList });
 })
 
 // vehicles detail router

@@ -44,6 +44,15 @@
                 <% } %> 
             </td>
         </tr>
+        <tr>
+            <th>Vehicles</th>
+            <td class="alt">
+                <% for (let vehicle of vehicleList) { %>
+                    <a href="/vehicles/<%= vehicle %> "><p><%= vehicle %></p></a>
+
+                <% } %> 
+            </td>        
+        </tr>
     </table>
 </body>
 </html>
