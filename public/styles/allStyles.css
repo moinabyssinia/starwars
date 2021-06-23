@@ -29,7 +29,15 @@ th {
 .card{
   /* height: 400px; */
   width: 300px;
+  border-radius: 50%;
   margin: 0 auto 0 auto;
+}
+
+.card:hover {
+  background-color:rgb(33, 43, 43);
+}
+.card:hover h3{
+  color: white;
 }
 
 .card-body a {
@@ -40,6 +48,9 @@ th {
 }
 .card-body{
   height: 250px;
+}
+.card-body h3{
+  margin: auto auto;
 }
 
 
