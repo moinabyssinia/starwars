@@ -11,4 +11,4 @@ npm install
 node index.js 
 nodemon index.js
 ```
-### App is deployed on Heroku - [Take me there](ctd-swapi.herokuapp.com/)
+### App is deployed on Heroku - [Take me there](https://ctd-swapi.herokuapp.com/)
