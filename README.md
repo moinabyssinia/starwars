@@ -1,6 +1,10 @@
 # Welcome to the universe of Star Wars!
 
-Data is fetched from the [SWAPI](https://swapi.dev/) using Axios - NodeJs - Express 
+Data is fetched from the [SWAPI](https://swapi.dev/) using Axios - NodeJs - Express <br/>
+Three models are included -> {people , films, vehicles} <br/>
+All three models are interconnected and one model can access the other two with a simple
+GET request
+
 
 ### To clone this repo
 ```
