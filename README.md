@@ -1,5 +1,6 @@
 [![made-with-express](https://img.shields.io/badge/Made%20with-Express-1f425f.svg)](https://expressjs.com/) 
 [![made with you](https://img.shields.io/badge/NodeJS-56c346.svg)](https://nodejs.org/en/) 
+[![made with you](https://img.shields.io/badge/EJS-fff3a9.svg)](https://ejs.co/) 
 
 # Welcome to the Universe of Star Wars!
 
