@@ -2,6 +2,11 @@
 
 Data is fetched from the [SWAPI](https://swapi.dev/) using Axios - NodeJs - Express 
 
+### To clone this repo
+```
+git clone git@github.com:moinabyssinia/starwars.git
+```
+
 ### To install dependencies needed to run the app
 ```
 npm install 
